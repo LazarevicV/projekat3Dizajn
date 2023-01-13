@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="dodavanje_novog">
+            <form action="">
+                <h1>Podaci clana</h1>
+                <span class="greska" id="greska"></span>
+                <p>
+                    <label for="id">id</label>
+                    <input type="number" name="id" id="id">
+                    <span class="greska" id="greska_id"></span>
+                </p>
+    
+                <p>
+                    <label for="ime_prezime">ime prezime</label>
+                    <input type="text" name="ime_prezime" id="ime_prezime">
+                    <span class="greska" id="greska_ime_prezime"></span>
+                </p>
+    
+                <p>
+                    <label for="godina_rodjenja">godina rodjenja</label>
+                    <input type="number" name="godina_rodjenja" id="godina_rodjenja">
+                    <span class="greska" id="greska_godina_rodjenja"></span>
+                </p>
+    
+                <p>
+                    <label for="email">email</label>
+                    <input type="email" name="email" id="email">
+                    <span class="greska" id="greska_email"></span>
+                </p>
+    
+                <p>
+                    <label for="regularni">regularni</label>
+                    <input type="radio" name="vrsta_clana" id="vrsta_clana_regularni" value="regularni" checked>
+                    <label for="basic">povlasceni</label>
+                    <input type="radio" name="vrsta_clana" id="vrsta_clana_povlasceni" value="povlasceni">
+                </p>
+                <button id="dodaj_button">Dodaj novi</button>
+                <br>
+                <p id="tajmer" class="display_none"></p>
+                <h3 id="operacija_tajmer" class="display_none"></h3>
+                <input type="text" class="display_none" name="tajmer_unos" id="tajmer_unos">
+                <button id="potvrdi_unos_tajmer" class="display_none">Povrdi unos</button>
+                <span class="greska" id="greska_potvrdi_tajmer"></span>
+                <button id="updajtuj_dugme" class="display_none">Update</button>
+                <button id="update_cancel" class="display_none">Cancel</button>
+            </form>
+        </div>
+        <table id="tabela">
+            <tr>
+                <th>id</th>
+                <th>ime i prezime</th>
+                <th>godina rodjenja</th>
+                <th>email</th>
+                <th>vrsta clana</th>
+                <th>clanarina</th>
+                <th colspan="2">Opcije</th>
+            </tr>
+        </table>
+    </div>
+    <script src="script/functions.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Prosto+One&family=Rubik+Gemstones&display=swap');
+
+*{
+    font-family: 'Prosto One', cursive;
+    font-size: 2vh;
+}
+
+div{
+    border: solid black thin;
+}
+.container{
+    padding: 1em;
+    border: none;
+}
+
+.dodavanje_novog{
+    margin-top: 1em;
+    padding: 1em;
+    width: 95%;
+}
+
+table,th,tr{
+    border: solid black thin;
+    border-collapse: collapse;
+}
+
+table tr:nth-child(even){
+    background-color: beige;
+}
+
+tr {
+    height: 50px;
+}
+
+tr:hover{
+    background-color: burlywood;
+}
+
+.display_none {
+    display: none !important;
+}
+
+#tajmer {
+    color:red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display_block {
+    display: block;
+}
+
+#tabela {
+    width: 97%;
+    margin-right: 1em;
+    height: 100%;
+    font-size: 1.5vh;
+}
+
+#tabela {
+    margin-top: 5vh;
+}
+
+#tabela tr th{
+    width: 12.5%;
+    font-size: 1.5vh;
+}
+
+#tajmer_unos {
+    margin-top: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.greska {
+    color: red;
+}
