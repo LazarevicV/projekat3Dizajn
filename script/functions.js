@@ -25,7 +25,6 @@ var c3 = new ClanTeretane(3, 'Saban Saulic', 1955, 'saban.saulic@gmail.com', 're
 
 var niz_clanova = [c1, c2, c3];
 const originalni_niz_clanova = [c1, c2, c3]
-console.log(niz_clanova);
 
 if (localStorage.getItem('niz') == undefined) {
   localStorage.setItem('niz', JSON.stringify(niz_clanova))
@@ -48,7 +47,6 @@ function dodaj_u_niz() {
     if (vrsta_clana[i].checked)
       chekiran = vrsta_clana[i].value
   }
-  console.log(chekiran)
   var clanarina = 3000
   if (chekiran == 'povlasceni') {
     clanarina = 3000 - (3000*0.2) // 20 #
@@ -93,7 +91,6 @@ function proveri_podatke() {
   var ime_prezime = document.getElementById('ime_prezime').value
   var godina_rodjenja = document.getElementById('godina_rodjenja').value
   var email = document.getElementById('email').value
-  // console.log(id, ime_prezime, godina_rodjenja, vrsta_clana, clanarina)
   
   var greska = document.getElementById('greska')
   var greska_ime_prezime = document.getElementById('greska_ime_prezime')
@@ -137,8 +134,6 @@ function proveri_podatke() {
   return true
 }
 
-// console.log(proveri_podatke());
-
 var dodaj_button = document.getElementById('dodaj_button')
 var tajmer = document.getElementById('tajmer')
 
@@ -160,17 +155,14 @@ function postavi_display_none_za_input_box_tajmer(input_tajmer) {
 
 function generisi_rendom_operaciju() {
   var prvi_broj = Math.floor(Math.random() * 10) +1
-  // console.log(prvi_broj);
   var drugi_broj = Math.floor(Math.random() * 10) +1
-  // console.log(drugi_broj);
+
   const znaci = ['+', '-', '/', '*']
   const rendom_indeks = Math.floor(Math.random() * znaci.length)
   znak_operacije = znaci[rendom_indeks]
   rezultat = 0
   if (znak_operacije == '+') {
     rezultat = prvi_broj + drugi_broj
-    console.log('+');
-    console.log(`${prvi_broj} ${znak_operacije} ${drugi_broj}`);
     return [rezultat, `${prvi_broj} ${znak_operacije} ${drugi_broj}`]
   }
   else if (znak_operacije == '-') {
@@ -179,13 +171,9 @@ function generisi_rendom_operaciju() {
       drugi_broj = prvi_broj
       prvi_broj = pomocna
       rezultat = prvi_broj - drugi_broj
-      console.log('-');
-      console.log(`${prvi_broj} ${znak_operacije} ${drugi_broj}`);
       return [rezultat, `${prvi_broj} ${znak_operacije} ${drugi_broj}`]
     }
     rezultat = prvi_broj - drugi_broj
-    console.log('-');
-    console.log(`${prvi_broj} ${znak_operacije} ${drugi_broj}`);
     return [rezultat, `${prvi_broj} ${znak_operacije} ${drugi_broj}`]
   }
   else if (znak_operacije == '/') {
@@ -195,20 +183,14 @@ function generisi_rendom_operaciju() {
       prvi_broj = pomocna
       rezultat = prvi_broj / drugi_broj
       rezultat = parseInt(rezultat)
-      console.log('/');
-      console.log(`${prvi_broj} ${znak_operacije} ${drugi_broj}`);
       return [rezultat, `${prvi_broj} ${znak_operacije} ${drugi_broj}`]
     }
     rezultat = prvi_broj/drugi_broj
     rezultat = parseInt(rezultat)
-    console.log('/');
-    console.log(`${prvi_broj} ${znak_operacije} ${drugi_broj}`);
     return [rezultat, `${prvi_broj} ${znak_operacije} ${drugi_broj}`]
   }
   else if (znak_operacije == '*') {
     rezultat = prvi_broj * drugi_broj
-    console.log('*');
-    console.log(`${prvi_broj} ${znak_operacije} ${drugi_broj}`);
     return [rezultat, `${prvi_broj} ${znak_operacije} ${drugi_broj}`]
   }
 }
@@ -229,13 +211,10 @@ function sakrij_operaciju(operacija_tajmer) {
 
 function proveri_unos_nakon_tajmera(rezultat) {
   var unesena_vrednost = document.getElementById('tajmer_unos').value
-  console.log(unesena_vrednost);
   if (unesena_vrednost == rezultat){
-    console.log(false);
     return true 
   }
   else {
-    console.log(true);
     return false
   }
 }
@@ -264,7 +243,6 @@ dodaj_button.addEventListener('click', (e) => {
     tajmer.classList.remove('display_none')
   } catch {}
   if (proveri_podatke()) {
-    console.log('test');
     var tajmer_unos = document.getElementById('tajmer_unos')
     tajmer_unos.value = ''
     dodaj_input_box_tajmer(tajmer_unos)
@@ -273,24 +251,17 @@ dodaj_button.addEventListener('click', (e) => {
     lista_iz_rendom_funkcije = generisi_rendom_operaciju()
     operacija_tajmer.innerText = lista_iz_rendom_funkcije[1]
     var rezultat = lista_iz_rendom_funkcije[0]
-    console.log(rezultat);
-    console.log(lista_iz_rendom_funkcije);
     prikazi_operaciju(operacija_tajmer)
     var potvrdi_unos_tajmer = document.getElementById('potvrdi_unos_tajmer')
     prikazi_potvrdi_dugme(potvrdi_unos_tajmer)
     
     var greska_potvrdi_tajmer = document.getElementById('greska_potvrdi_tajmer')
-    console.log('test');
     greska_potvrdi_tajmer.innerText = ''
     potvrdi_unos_tajmer.addEventListener('click', (e) => {
       e.preventDefault()
       var potvrdi_input = document.getElementById('tajmer_unos')
       potvrdi_input.innerText = ''
-      console.log(rezultat)
-      console.log('pozvana funkcija');
       if (proveri_unos_nakon_tajmera(rezultat)) {
-        console.log(proveri_unos_nakon_tajmera(rezultat));
-        console.log('true');
         dodaj_u_niz()
         location.reload()
       }
@@ -318,10 +289,8 @@ dodaj_button.addEventListener('click', (e) => {
     }
   }
 })
-console.log(niz_clanova)
 
 ispisi_sve_clanove(niz_clanova)
-// console.log(trenutni_clan);
 
 const deleteButtons = document.querySelectorAll("[id^='delete_']");
 
@@ -333,7 +302,6 @@ deleteButtons.forEach(button => {
     // Uklonite div sa stranice
     memberDiv.remove();
     obrisi_id = event.target
-    console.log(obrisi_id)
     var id_clan = event.target.id.split('_')[1]
     niz_clanova.splice(id_clan, 1)
     if (niz_clanova.length === 0) {
@@ -363,10 +331,8 @@ updateButtons.forEach(button => {
     update_cancel.classList.remove('display_none')
     update_id = event.target
     pozicija = parseInt(update_id.id.split('_')[1])
-    console.log(pozicija);
     izabrani_clan = niz_clanova[pozicija]
 
-    console.log(izabrani_clan);
     var id = document.getElementById('id')
     id.setAttribute('disabled','')
     id.setAttribute('value', izabrani_clan.id)
@@ -382,16 +348,12 @@ updateButtons.forEach(button => {
     
     var regularni_radio_button = document.getElementById('vrsta_clana_regularni')
     var povlasceni_radio_button = document.getElementById('vrsta_clana_povlasceni')
-    console.log(regularni_radio_button, povlasceni_radio_button)
-    console.log(izabrani_clan.vrsta_clana);
     if (izabrani_clan.vrsta_clana == 'povlasceni') {
-      console.log('izabrani_clan.vrsta_clana jeste povlasceni');
       povlasceni_radio_button.checked = true
       regularni_radio_button.checked = false
     }
     else 
       {
-        console.log('izabrani_clan.vrsta_clana jeste regularni');
         regularni_radio_button.checked = true 
         povlasceni_radio_button.checked = false 
       }
@@ -401,7 +363,6 @@ updateButtons.forEach(button => {
 update_button = document.getElementById('updajtuj_dugme')
 update_button.addEventListener('click', (e) => {
   e.preventDefault()
-  console.log(pozicija)
   var dodaj_novi_dugme = document.getElementById('dodaj_button')
   var ime_prezime = document.getElementById('ime_prezime').value
   niz_clanova[pozicija].ime_prezime = ime_prezime
@@ -436,5 +397,3 @@ update_cancel.addEventListener('click', (e) => {
   e.preventDefault()
   location.reload()
 })
-
-console.log(niz_clanova);
