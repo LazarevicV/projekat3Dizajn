@@ -113,8 +113,8 @@ function proveri_podatke() {
   }
   greska_id.innerText = ''
   
-  if (ime_prezime.length < 2) {
-    greska_ime_prezime.innerText = 'Ime i prezime moraju imati bar 2 karaktera'
+  if (ime_prezime.includes(' ') == false) {
+    greska_ime_prezime.innerText = 'Morate uneti ime i prezime!'
     return false 
   }
   greska_ime_prezime.innerText = ''
